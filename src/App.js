@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CountryList from "./components/CountryList";
+import Trend from "./components/Trend";
 
 function App() {
+  let countries = [
+    "Australia",
+    "Canada",
+    "Egypt",
+    "Malaysia",
+    "United Kingdom",
+    "United States",
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CountryList countries={countries} />
     </div>
   );
 }
