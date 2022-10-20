@@ -22,7 +22,6 @@ function Trend(props) {
   };
 
   useEffect(() => {
-    console.log(props.country);
     let url = "https://disease.sh/v3/covid-19/historical/all?lastdays=30";
     if (props.country) {
       url = `https://disease.sh/v3/covid-19/historical/${props.country}?lastdays=30`;
@@ -30,13 +29,13 @@ function Trend(props) {
     async function getHistorical() {
       const resp = await fetch(url);
       const data = await resp.json();
-      const { timeline } = data;
-      const { cases, deaths, recovered } = timeline;
-      let keys = Object.keys(cases);
-      let values = Object.values(cases);
+      // const { timeline } = data;
+      const { cases, deaths, recovered, updated } = data;
+      // let keys = Object.keys(cases);
+      // let values = Object.values(cases);
       casesUpdate(cases);
-      dateUpdate(keys);
-      figureUpdate(values);
+      dateUpdate(updated);
+      // figureUpdate(values);
     }
     getHistorical();
   }, [props.country]);
